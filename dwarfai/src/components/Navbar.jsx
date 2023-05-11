@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, Flex } from '@chakra-ui/react'
 import { Box } from '@chakra-ui/react'
 import './Navbar.css'
+import { Link } from 'react-router-dom'
 function Navbar() {
     return (
         <Flex style={{ boxShadow: '-1px 10px 18px -9px rgba(0,0,0,0.75)', width: '100%', height: '75px', justifyContent: 'space-between', alignItems: 'center' }} >
@@ -14,8 +15,8 @@ function Navbar() {
                 <p>MacroTracker<span className='span'>NEW!</span></p>
             </Flex>
             <Box>
-                <Button>Sign In</Button>
-                <Button colorScheme='blue'>Sign Up</Button>
+                <Button> <Link to={'/sign-in'}> Sign In </Link></Button>
+                <Button colorScheme='blue'> <Link to={'/sign-up'}>Sign Up</Link></Button>
 
             </Box>
         </Flex>

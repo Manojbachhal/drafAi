@@ -41,8 +41,8 @@ function Footer() {
 
 
                     <Flex p={3} gap={'20px'}>
-                        <Input variant='outline' background={'white'} />
-                        <Button colorScheme='blue' >Subscribe</Button>
+                        <Input background={'white'} color={'black'} />
+                        <Button colorScheme='messenger' p={'5'} >Subscribe</Button>
                     </Flex>
                 </Box>
             </Box>
