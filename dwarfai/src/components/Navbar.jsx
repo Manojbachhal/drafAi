@@ -5,14 +5,19 @@ import './Navbar.css'
 import { Link } from 'react-router-dom'
 function Navbar() {
     return (
-        <Flex style={{ boxShadow: '-1px 10px 18px -9px rgba(0,0,0,0.75)', width: '100%', height: '75px', justifyContent: 'space-between', alignItems: 'center' }} >
+        <Flex style={{
+            boxShadow: '-1px 10px 18px -9px rgba(0,0,0,0.75)', width: '100%',
+            height: '75px', justifyContent: 'space-between',
+            alignItems: 'center', position: 'fixed',
+            background: 'white', marginTop: '-10px', zIndex: '99999'
+        }} >
             <Flex width="80%" style={{ alignItems: 'center', justifyContent: 'inherit' }}>
                 <h1 className='gradient'>GymGenie</h1>
-                <p>Home</p>
-                <p>About</p>
-                <p>Pricing</p>
-                <p>Gym genie MealPlan <span className='span'>NEW!</span></p>
-                <p>MacroTracker<span className='span'>NEW!</span></p>
+                <Link to='/' >Home</Link>
+                <Link to='/profile'>Profile</Link>
+                <Link to='/workout'>Workout <span className='span'>NEW!</span></Link>
+                <Link>MacroTracker<span className='span'>NEW!</span></Link>
+                <Link to='/settings'>Settings </Link>
             </Flex>
             <Box>
                 <Button> <Link to={'/sign-in'}> Sign In </Link></Button>

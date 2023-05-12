@@ -3,7 +3,7 @@ import React from 'react'
 
 function Footer() {
     return (
-        <Box background={'#0F172A'}>
+        <Box background={'#0F172A'} style={{ position: 'relative' }}>
             <Box display={'flex'} justifyContent={'space-evenly'} height={'200px'} pt={7} style={{ color: 'white' }}>
                 <Box>
                     <h6 style={{

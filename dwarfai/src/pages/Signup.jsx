@@ -1,7 +1,15 @@
-import React from 'react'
-import { Box, Button, Input } from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Box, Button, FormControl, FormErrorMessage, Input } from '@chakra-ui/react'
+import { Link, useNavigate } from 'react-router-dom'
 function Signup() {
+    let [user, setUser] = useState({
+        email: '',
+        password: '',
+        Cpassword: ''
+    })
+    const redirect = useNavigate();
+    const isError = user.password !== user.Cpassword
+
     return (
         <Box style={{
             background: '#F7F9FC'
@@ -21,6 +29,7 @@ function Signup() {
 
                 </Box>
                 <Box mt={'8'}>
+
                     <p style={{ margin: '7px 0px', fontWeight: '700', color: '#4B5563' }}>First Name</p>
                     <Input variant='outline' background={'white'} color={'black'} />
 
@@ -34,24 +43,36 @@ function Signup() {
                     <br />
 
                     <p style={{ margin: '7px 0px', fontWeight: '700', color: '#4B5563' }}>Email</p>
-                    <Input variant='outline' background={'white'} color={'black'} />
+                    <Input variant='outline' type='email' background={'white'} color={'black'} onChange={(e) => { setUser({ ...user, email: e.target.value }) }} />
 
                     <br />
                     <br />
 
                     <p style={{ margin: '7px 0px', fontWeight: '700', color: '#4B5563' }}>Password</p>
-                    <Input variant='outline' background={'white'} color={'black'} />
+                    <Input variant='outline' type='password' background={'white'} color={'black'} onChange={(e) => { setUser({ ...user, password: e.target.value }) }} />
 
                     <br />
                     <br />
+                    <FormControl isInvalid={isError}>
+                        <p style={{ margin: '7px 0px', fontWeight: '700', color: '#4B5563' }}>Confirm Password</p>
+                        <Input variant='outline' type='password' background={'white'} color={'black'} onChange={(e) => { setUser({ ...user, Cpassword: e.target.value }) }} />
+                        {
+                            isError ? <FormErrorMessage>Password is not Matched.</FormErrorMessage> : ' '
+                        }
+                        <br />
+                        <br />
 
-                    <p style={{ margin: '7px 0px', fontWeight: '700', color: '#4B5563' }}>Confirm Password</p>
-                    <Input variant='outline' background={'white'} color={'black'} />
-
-                    <br />
-                    <br />
-
-                    <Button colorScheme='messenger' p={'5'} width={'100%'}>Sign Up</Button>
+                        <Button colorScheme='messenger' p={'5'} width={'100%'} onClick={() => {
+                            if (user.password === user.Cpassword) {
+                                let data = JSON.parse(localStorage.getItem("UserData")) || [];
+                                // console.log(data)
+                                data = [...data, user];
+                                // console.log(data)
+                                localStorage.setItem("UserData", JSON.stringify(data))
+                                redirect('/sign-in')
+                            }
+                        }}>Sign Up</Button>
+                    </FormControl>
 
                     <br />
                     <p align='center' style={{

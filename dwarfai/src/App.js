@@ -10,9 +10,7 @@ function App() {
   return (
     <ChakraProvider>
       <BrowserRouter>
-        <Navbar />
         <Rouer />
-        <Footer />
       </BrowserRouter>
     </ChakraProvider>
   );
