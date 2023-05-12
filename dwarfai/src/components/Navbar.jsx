@@ -4,6 +4,7 @@ import { Box } from '@chakra-ui/react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
 function Navbar() {
+    let isLoggedin = JSON.parse(localStorage.getItem('isLoggedin'))
     return (
         <Flex style={{
             boxShadow: '-1px 10px 18px -9px rgba(0,0,0,0.75)', width: '100%',
@@ -20,7 +21,7 @@ function Navbar() {
                 <Link to='/settings'>Settings </Link>
             </Flex>
             <Box>
-                <Button> <Link to={'/sign-in'}> Sign In </Link></Button>
+                <Button disable={isLoggedin}> <Link to={'/sign-in'} > Sign In </Link></Button>
                 <Button colorScheme='blue'> <Link to={'/sign-up'}>Sign Up</Link></Button>
 
             </Box>

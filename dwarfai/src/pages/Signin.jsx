@@ -34,7 +34,7 @@ function Signin() {
                     <br />
 
                     <p style={{ margin: '7px 0px', fontWeight: '700', color: '#4B5563' }}>Password</p>
-                    <Input variant='outline' background={'white'} color={'black'} onChange={(e) => { setUser({ ...user, password: e.target.value }) }} />
+                    <Input variant='outline' type='password' background={'white'} color={'black'} onChange={(e) => { setUser({ ...user, password: e.target.value }) }} />
 
                     <br />
                     <br />
@@ -44,6 +44,7 @@ function Signin() {
                             if (element.email == user.email && element.password == user.password) {
 
                                 localStorage.setItem("CurrentUSer", JSON.stringify(user));
+                                localStorage.setItem('isLoggedin', true)
                                 redirect('/')
                             } else {
                                 alert('Email or Password is incorrect')
