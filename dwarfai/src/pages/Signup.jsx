@@ -25,7 +25,7 @@ function Signup() {
                         lineHeight: '2rem',
                         margin: '10px 0px'
                     }}>Sign up for an account</h3>
-                    <p>Have an account already?   <Link to='/sign-in' >Sign in</Link> </p>
+                    <p>Have an account already?   <Link to='/sign-in' style={{ color: 'blue' }} >Sign in</Link> </p>
 
                 </Box>
                 <Box mt={'8'}>

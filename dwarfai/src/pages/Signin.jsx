@@ -23,7 +23,7 @@ function Signin() {
                         lineHeight: '2rem',
                         margin: '10px 0px'
                     }}>Sign in</h3>
-                    <p>Don't have an account?  <Link to='/sign-up' >Sign Up</Link> </p>
+                    <p>Don't have an account?  <Link to='/sign-up' style={{ color: 'blue' }} >Sign Up</Link> </p>
 
                 </Box>
                 <Box mt={'8'}>

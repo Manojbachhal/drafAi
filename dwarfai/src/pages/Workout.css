@@ -1,0 +1,10 @@
+.workout-magicfont {
+  background: -webkit-linear-gradient(
+    360deg,
+    rgba(134, 239, 172, 1) 0%,
+    rgba(59, 130, 246, 1) 50%,
+    rgba(147, 51, 234, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
